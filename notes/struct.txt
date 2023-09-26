@@ -1,0 +1,25 @@
+memory [4096]byte :
+dans un premier temps la memoire de l'emulateur :
+il est stipulé que cette derniere est de 4096 bytes (4ko)
+elle est donc utiliser pour stocker chaque elements que se soit les sprites, les donnees, le programme en cours d'execution
+
+'v' [16] byte :
+principaux registres de l'emulateur qui sont aux nombres de 16 (V0 VF)
+chaque valeur du registre est un byte qui stocke une valeur de 0 a 255
+
+'i' uint16 : 
+represente le registre d'index 16bits de chip-8, utiliser pour stocker des addresses memoires pour acceder a ces donnees
+
+'pc' uint16 :
+compteur de programme 16bits, il contient l'addresse memoire de l'instructions en cours d'execution
+quand l'emulateur execute des instructions, le compteur est incremente pour passer a l'instruction suivantes
+
+'stack' uint16[]:
+represente la pile d'appel de l'emulateur, ce dernier est utiliser pour gerer les appels de fonctions dans les programmes 
+donc 16 valeurs de 16bits correspondant au addresses de retour
+
+'sp' int :
+pointeur de la pile, il indique l'index de la pile qui pointe vers le sommet donc empilé + et depilez sp -
+
+display [64*32]bytes :
+represente l'ecran de l'emulateur chip-8, donc une grille de 64x32 pixels, chaque pixel est representé par un byte (octet)
