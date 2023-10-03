@@ -88,7 +88,7 @@ func InitiateChip8() Chip8 {
 func (c *Chip8) opCoding() {
 	c.Opcode = uint16(c.Memory[c.PC])<<8 | uint16(c.Memory[c.PC+1])
 }
-
+//emulation des opcode
 func (c *Chip8) emulateOpcode() bool {
 	switch c.Opcode & 0xF000 {
 	case 0x0000:
@@ -330,7 +330,7 @@ func (c *Chip8) emulateOpcode() bool {
 	}
 	return false
 }
-
+// opcode inconnus erreur 
 func panicUnknownOpcode(opcode uint16) {
 	log.Panicf("opcode non reconnu %v", opcode)
 }
@@ -343,7 +343,7 @@ func (c *Chip8) timerRefresh() {
 		c.Sound--
 	}
 }
-
+// methode dessiner a l'ecran
 func (g *Chip8) Draw(screen *ebiten.Image) {
 	for row := 0; row < height; row++ {
 		for col := 0; col < Width; col++ {
@@ -378,13 +378,13 @@ func (c *Chip8) LoadGUI(filename string) {
 		c.Memory[512+i] = b
 	}
 }
-
+// créattion octet aléatoire 
 func randomByte() uint8 {
 	rand.Seed(time.Now().UTC().UnixNano())
 	randint := rand.Intn(math.MaxUint8)
 	return uint8(randint)
 }
-
+// execution de l'emulation
 func (c *Chip8) Emulation() {
 	c.opCoding()
 	skip := c.emulateOpcode()
