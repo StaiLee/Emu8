@@ -11,10 +11,13 @@ import (
 	"github.com/hajimehoshi/ebiten/v2"
 )
 
+// initialisation des constantes 
+
 const Font = 80
 const Width = 64 * 10
 const height = 32 * 10
 
+// initialisation de la struct chip8 
 type Chip8 struct {
 	Memory [4096]uint8
 	V      [16]uint8
@@ -28,6 +31,8 @@ type Chip8 struct {
 	SP     uint16
 	Sound  uint8
 }
+
+// initialisation tableau de la puce
 
 var fontSet [Font]uint8 = [Font]uint8{
 	0xF0, 0x90, 0x90, 0x90, 0xF0, // 0
