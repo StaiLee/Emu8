@@ -12,10 +12,9 @@ import (
 )
 
 // initialisation des constantes 
-
-const Font = 80
 const Width = 64 * 10
 const height = 32 * 10
+const Font = 80
 
 // initialisation de la struct chip8 
 type Chip8 struct {
@@ -53,6 +52,7 @@ var fontSet [Font]uint8 = [Font]uint8{
 	0xF0, 0x80, 0xF0, 0x80, 0x80, // F
 }
 
+// fonction pour gerer les input avec chaques key
 func (c *Chip8) input() {
 	c.Key = [16]bool{
 		ebiten.IsKeyPressed(ebiten.KeyX),
@@ -73,7 +73,7 @@ func (c *Chip8) input() {
 		ebiten.IsKeyPressed(ebiten.KeyV),
 	}
 }
-
+// initialisation de la puce
 func InitiateChip8() Chip8 {
 	var mem [4096]uint8
 	for i := 0; i < 10; i++ {
