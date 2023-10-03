@@ -1,5 +1,4 @@
 package main
-
 // Importation des packages
 import (
 	"emu8/emul8"
@@ -7,7 +6,7 @@ import (
 	"os"
 	"github.com/hajimehoshi/ebiten/v2"
 )
-
+// Création fonction main
 func main() {
 	if len(os.Args) < 2 {    
 		log.Fatal("roms8/file.ch8") // 
