@@ -9,7 +9,8 @@ import (
 // Création fonction main
 func main() {
 	// verifier les arg
-	if len(os.Args) < 2 {    
+	if len(os.Args) < 2 {   
+		// erreur case 
 		log.Fatal("roms8/file.ch8") // 
 	}
 	programName := os.Args[1] 
