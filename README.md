@@ -1,10 +1,10 @@
-# Emul8
+# Emul8 - Chip8 Emulator in Go
 
 This is a simple emulator written in Go for the Chip8 system.
 
-## how to run ?
+## How to Run?
 
-go run .\main.go .\roms8\chip8-logo.ch8
+To run Emul8, use the following command, replacing the ROM file path with the one you want to execute:
 
 ## Preview
 
