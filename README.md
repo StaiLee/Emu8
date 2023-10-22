@@ -1,4 +1,4 @@
-# Emul8 - Chip8 Emulator in Go
+# Emu8 - Chip8 Emulator in Go
 
 This is a simple emulator written in Go for the Chip8 system.
 
