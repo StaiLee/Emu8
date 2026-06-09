@@ -1,5 +1,11 @@
 # Emu8 - Chip8 Emulator in Go
 
+[![CI](https://github.com/StaiLee/Emu8/actions/workflows/ci.yml/badge.svg)](https://github.com/StaiLee/Emu8/actions/workflows/ci.yml)
+[![Go](https://img.shields.io/github/go-mod/go-version/StaiLee/Emu8?logo=go&color=00ADD8)](go.mod)
+[![License: MIT](https://img.shields.io/github/license/StaiLee/Emu8?color=blue)](LICENSE)
+[![Stars](https://img.shields.io/github/stars/StaiLee/Emu8?logo=github&color=e3b341)](https://github.com/StaiLee/Emu8/stargazers)
+
+
 This is a simple emulator written in Go for the Chip8 system.
 
 ## How to Run?
@@ -27,4 +33,3 @@ go run .\main.go .\roms8\Particle.ch8
 go run .\main.go .\roms8\Tetris.ch8
 
 ![image](https://github.com/StaiLee/Emu8/assets/112949836/94c7600d-b21d-4af1-96f0-66eedc365795)
-
