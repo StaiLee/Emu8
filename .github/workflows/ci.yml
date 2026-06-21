@@ -18,7 +18,7 @@ jobs:
       - name: Install Ebiten system dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y libgl1-mesa-dev xorg-dev libasound2-dev libxxf86vm-dev pkg-config
+          sudo apt-get install -y libgl1-mesa-dev libgl1-mesa-dri xorg-dev libasound2-dev libxxf86vm-dev pkg-config xvfb
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
@@ -26,4 +26,6 @@ jobs:
           cache: true
       - run: go build -v ./...
       - run: go vet ./...
-      - run: go test -v ./...
+      # The emul8 package imports Ebiten, whose init() needs an X display even
+      # for tests, so run the suite under a virtual framebuffer.
+      - run: xvfb-run -a go test -v ./...
