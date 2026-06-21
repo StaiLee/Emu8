@@ -77,8 +77,8 @@ func (c *Chip8) input() {
 // initialisation de la puce
 func InitiateChip8() Chip8 {
 	var mem [4096]uint8
-	for i := 0; i < 10; i++ {
-		mem[i] = fontSet[i] // Initialise la mémoire avec la police de caractères
+	for i := 0; i < len(fontSet); i++ {
+		mem[i] = fontSet[i] // Charge les 80 octets de la police (16 caracteres x 5 octets)
 	}
 	return Chip8{
 		PC:     0x200, // Initialise le compteur de programme à 0x200
@@ -124,8 +124,8 @@ func (c *Chip8) emulateOpcode() bool {
 			c.PC += 2
 		}
 	case 0x5000:
-		if c.V[(c.Opcode&0x0F00)>>8] != c.V[(uint8(c.Opcode)&0x00F0)>>4] {
-			c.PC += 4 // Saute l'instruction suivante si la condition est vraie
+		if c.V[(c.Opcode&0x0F00)>>8] == c.V[(uint8(c.Opcode)&0x00F0)>>4] {
+			c.PC += 4 // 5xy0 : saute l'instruction suivante si Vx == Vy
 		} else {
 			c.PC += 2
 		}
